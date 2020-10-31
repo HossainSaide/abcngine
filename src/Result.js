@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import jsPDF from "jspdf";
-import {Line} from 'react-chartjs-2';
+import { Line } from "react-chartjs-2";
 import "jspdf-autotable";
 
 class Result extends React.Component {
@@ -60,8 +60,8 @@ class Result extends React.Component {
     doc.save("report.pdf");
   };
   chart = () => {
-  this.setState(() => ({ showChart: true }));
-  }
+    this.setState(() => ({ showChart: true }));
+  };
   render() {
     const {
       pName,
@@ -76,44 +76,40 @@ class Result extends React.Component {
       max_Z,
       min_Z,
       x_axis,
-      y_axis
+      y_axis,
     } = this.props.data;
     const chartVal = {
       labels: x_axis,
-          datasets: [
-            {
-              label: 'Chart',
-              fill: false,
-              lineTension: 0.5,
-              backgroundColor: 'rgba(75,192,192,1)',
-              borderColor: 'rgba(0,0,0,1)',
-              borderWidth: 1,
-              data: y_axis
-            }
-          ]
-    }
+      datasets: [
+        {
+          label: "Chart",
+          fill: false,
+          lineTension: 0.5,
+          backgroundColor: "rgba(75,192,192,1)",
+          borderColor: "rgba(0,0,0,1)",
+          borderWidth: 1,
+          data: y_axis,
+        },
+      ],
+    };
     return (
       <Fragment>
-        
         {this.state.showChart ? (
           <Fragment>
             <Line
-          data={
-            chartVal
-            
-          }
-          options={{
-            title:{
-              display:true,
-              text:'',
-              fontSize:20
-            },
-            legend:{
-              display:true,
-              position:'right'
-            }
-          }}
-        />
+              data={chartVal}
+              options={{
+                title: {
+                  display: true,
+                  text: "",
+                  fontSize: 20,
+                },
+                legend: {
+                  display: true,
+                  position: "right",
+                },
+              }}
+            />
           </Fragment>
         ) : (
           <Fragment>
@@ -181,8 +177,12 @@ class Result extends React.Component {
                   onClick={() => this.exportPDF()}
                 >
                   Download PDF
-                </button> 
-                <button type="button" id="chartBtn" onClick={() => this.chart()}>
+                </button>
+                <button
+                  type="button"
+                  id="chartBtn"
+                  onClick={() => this.chart()}
+                >
                   Show KP vs X Chart
                 </button>
               </div>

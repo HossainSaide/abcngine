@@ -19,8 +19,8 @@ class MultiStepForm extends React.Component {
       max_Z: "",
       min_Z: "",
       resultPage: false,
-      x_axis:[],
-      y_axis:[]
+      x_axis: [],
+      y_axis: [],
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.onFileChange = this.onFileChange.bind(this);
@@ -100,12 +100,12 @@ class MultiStepForm extends React.Component {
     // }))
     //var max_X = Math.max(...X)
     var KP = await Promise.all(
-        all_data.map(async function (element) {
-          if (element.KP != undefined) {
-            return parseFloat(element.KP);
-          }
-        })
-      );
+      all_data.map(async function (element) {
+        if (element.KP != undefined) {
+          return parseFloat(element.KP);
+        }
+      })
+    );
     var X = await Promise.all(
       all_data.map(async function (element) {
         if (element.X != undefined) {
@@ -151,8 +151,8 @@ class MultiStepForm extends React.Component {
       max_Z: max_Z,
       min_Z: min_Z,
       isCSV: true,
-      x_axis:KP,
-      y_axis: X
+      x_axis: KP,
+      y_axis: X,
     }));
     // all_data.forEach(element => {
     //     console.log("element", element)
