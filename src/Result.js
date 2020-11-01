@@ -178,13 +178,15 @@ class Result extends React.Component {
                 >
                   Download PDF
                 </button>
-                <button
-                  type="button"
-                  id="chartBtn"
-                  onClick={() => this.chart()}
-                >
-                  Show KP vs X Chart
-                </button>
+                {isCSV && (
+                  <button
+                    type="button"
+                    id="chartBtn"
+                    onClick={() => this.chart()}
+                  >
+                    Show KP vs X Chart
+                  </button>
+                )}
               </div>
             </div>
           </Fragment>
